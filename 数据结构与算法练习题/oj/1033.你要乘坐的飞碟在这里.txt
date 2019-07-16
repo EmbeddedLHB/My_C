@@ -1,0 +1,22 @@
+#include "stdafx.h"
+
+#include <stdio.h>
+int main()
+{
+	int i, sum_comet = 1, sum_team = 1;
+	char comet[7] = { '\0' };
+	char team[7] = { '\0' };
+	scanf_s("%s", comet, 6);
+	scanf_s("%s", team, 6);
+	for (i = 0; i < 6; i++)
+		if (comet[i] != '\0')
+			sum_comet *= comet[i] - '\0' - 64;
+	for (i = 0; i < 6; i++)
+		if (team[i] != '\0')
+			sum_team *= team[i] - '\0' - 64;
+	if (sum_comet % 47 == sum_team % 47)
+		printf("GO\n");
+	else
+		printf("STAY\n");
+	return 0;
+}

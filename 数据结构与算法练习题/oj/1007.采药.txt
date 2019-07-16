@@ -1,0 +1,26 @@
+#include <stdio.h> 
+int max(int a, int b);
+int main()
+{
+	int T, M;
+	int i, j;
+	int time[100], value[100], maxvalue[1001] = { 0 };
+	scanf("%d%d", &T, &M);
+	for (i = 0; i < M; i++)
+	{
+		scanf("%d", &time[i]);
+		scanf("%d", &value[i]);
+	}
+	for (i = 0; i < M; i++)
+		for (j = 1000; j >=time[i]; j--)
+			maxvalue[j] = max(maxvalue[j],maxvalue[j-time[i]]+value[i]);
+	printf("%d\n", maxvalue[T]);
+	return 0;
+}
+int max(int a, int b)
+{
+	if (a > b)
+		return a;
+	else
+		return b;
+}

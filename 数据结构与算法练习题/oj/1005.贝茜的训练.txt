@@ -1,0 +1,40 @@
+#include <stdio.h> 
+int main()
+{
+	int i, sum = 0, num = 0;
+	int M, T, U, F, D;
+	char S_i[10000000];
+	scanf("%d%d%d%d%d", &M, &T, &U, &F, &D);
+	for (i = 0; i < T; i++)
+		scanf(" %c", &S_i[i]);
+	for (i = 0; i < T; i++)
+	{
+		if (S_i[i] == 'u' || S_i[i] == 'd')
+		{
+			if (sum + U + D > M)
+			{
+				printf("%d\n", num);
+				return 0;
+			}
+			else
+			{
+				sum += U + D;
+				num++;
+			}
+		}
+		if (S_i[i] == 'f')
+		{
+			if (sum + 2 * F > M)
+			{
+				printf("%d\n", num);
+				return 0;
+			}
+			else
+			{
+				sum += 2 * F;
+				num++;
+			}
+		}
+	}
+	return 0;
+}

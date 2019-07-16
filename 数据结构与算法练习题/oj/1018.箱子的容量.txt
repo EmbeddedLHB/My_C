@@ -1,0 +1,23 @@
+#include <stdio.h>
+int max(int a, int b);
+int main()
+{
+	int i, j;
+	int v, n;
+	int volume[30], maxvalue[20001] = { 0 };
+	scanf("%d%d", &v, &n);
+	for (i = 0; i < n; i++)
+		scanf("%d", &volume[i]);
+	for (i = 0; i < n; i++)
+		for (j = 20000; j >= volume[i]; j--)
+			maxvalue[j] = max(maxvalue[j], maxvalue[j - volume[i]] + volume[i]);
+	printf("%d\n", v-maxvalue[v]);
+	return 0;
+}
+int max(int a, int b)
+{
+	if (a > b)
+		return a;
+	else
+		return b;
+}

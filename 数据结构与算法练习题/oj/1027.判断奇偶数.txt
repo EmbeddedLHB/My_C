@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main()
+{
+	int n, i;
+	int num, temp[100];
+	char input;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++)
+	{
+		getchar();
+		scanf("%c", &input);
+		while (input != '\n')
+		{
+			num = input - '0';
+			scanf("%c", &input);
+		}
+		if (num % 2 == 0)
+			temp[i] = 0;
+		else
+			temp[i] = 1;
+	}
+	for (i = 0; i < n; i++)
+	{
+		if (temp[i] == 0)
+			printf("even\n");
+		else
+			printf("odd\n");
+	}
+	return 0;
+}
